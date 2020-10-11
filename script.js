@@ -183,7 +183,6 @@ window.onload = function() {
 }
 
 window.onhashchange = function() {
-	field.value = '';
 	field.readOnly = true;
 	for(let i=0; i < notes_arr.length; i++)
 	{
@@ -194,22 +193,20 @@ window.onhashchange = function() {
 
 	let new_hash = window.location.hash;
 	let new_id = new_hash.slice(1, new_hash.indexOf('/'));
+
 	let new_li = document.getElementById(new_id);
 
-	if(new_li)
-	{
+	if (new_li) {
 		new_li.setAttribute('select', true);
-		for(let i=0; i < notes_arr.length; i++)
-		{
-			if(notes_arr[i].id === new_id)
-			{
+		for (let i = 0; i < notes_arr.length; i++) {
+			if (notes_arr[i].id === new_id) {
 				notes_arr[i].selected = true;
 				field.value = notes_arr[i].text;
 				field.readOnly = false;
 				field.focus();
 			}
-		
 		}
 	}
-	
+	else
+		field.value = '';	
 }

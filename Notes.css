@@ -35,6 +35,15 @@ body {
     overflow: auto;
 }
 
+    .button:active {
+        border: 2px solid;
+        border-color: gold;
+        background-color: rgb(200 200 190);
+    }
+
+    .button:focus {
+        outline: none;
+    }
 .main_div {
     display: flex;
     flex-direction: row;
